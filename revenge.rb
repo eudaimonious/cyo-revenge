@@ -1,4 +1,3 @@
-#!/usr/bin/python
 # -*- coding: UTF-8 -*-
 from sys import exit
 import re
@@ -36,9 +35,9 @@ h = {
 
 def loopin_through(name)
 	puts h[name][:text]
-	next_stop = raw_input("> ")
-	if h[name][:options].has_key?(next_stop)
-		result = h[name][:options][next_stop]
+	whereto_stop = raw_input("> ")
+	if h[name][:options].has_key?(whereto_stop)
+		result = h[name][:options][whereto_stop]
 	else
 		result = h[name][:else]
 	end
@@ -55,17 +54,17 @@ end
 def destruct()
 	puts " "
 	puts "It's New Year's 2003 and you pick the wrong bar to party at."
-	#pick out a song at random that is from 2003 or ealier that is both "hot" and danceable (likely to be played at a bar)
-	a = 'http://developer.echonest.com/api/v4/song/search?api_key=19EL7JSMTLLWIHPS0&format=json&results=1&artist_end_year_before=2004&min_danceability=0.{dance}&song_min_hotttnesss=0.{hotness}'.format(dance = random.randint(5,9), hotness = random.randint(5,9))
-	f = urllib2.urlopen(a)
-	songdata = json.load(f)['response']﻿
-	#if a song isn't picked, play Creed. Yuck.
-	if not songdata['songs']
-		puts "The song playing on the jukebox is 'Higher' by Creed. It makes you a bit stabby."
-	else
-		#puts the song that's playing
-		puts "The song playing on the jukebox is {song} by {artist}".format(song = songdata['songs'][0]['title'], artist = songdata['songs'][0]['artist_name'])
-	end
+# 	#pick out a song at random that is from 2003 or ealier that is both "hot" and danceable (likely to be played at a bar)
+# 	a = 'http://developer.echonest.com/api/v4/song/search?api_key=19EL7JSMTLLWIHPS0&format=json&results=1&artist_end_year_before=2004&min_danceability=0.{dance}&song_min_hotttnesss=0.{hotness}'.format(dance = random.randint(5,9), hotness = random.randint(5,9))
+# 	f = urllib2.urlopen(a)
+# 	songdata = json.load(f)['response']﻿
+# 	#if a song isn't picked, play Creed. Yuck.
+# 	if not songdata['songs']
+# 		puts "The song playing on the jukebox is 'Higher' by Creed. It makes you a bit stabby."
+# 	else
+# 		#puts the song that's playing
+# 		puts "The song playing on the jukebox is {song} by {artist}".format(song = songdata['songs'][0]['title'], artist = songdata['songs'][0]['artist_name'])
+# 	end
 	puts "You start a fight with these two punks."
 	puts "One is a larger woman who seems to have a knife."
 	puts "The other is a skinny man who doesn't appear to have a weapon."
@@ -73,11 +72,11 @@ def destruct()
 	puts " "
 	puts "1) Disarm the woman!"
 	puts "2) Take out scrawny."
-	next = raw_input("> ")
+	whereto = raw_input("> ")
 	#this all goes poorly and all roads lead to death
-	if next == "1"
+	if whereto == "1"
 		dead("Too bad, scrawny also had a knife! He stabs you in the back and you die.")
-	elsif next == "2"
+	elsif whereto == "2"
 		dead("Not quick enough! The woman stabs you as soon as you go for the man. You die.")
 	else
 		dead("Too slow! The woman stabs you while the man punches you in the face. You die.")
@@ -102,15 +101,15 @@ def revengesensei()
 	puts "with a revenge sensei in Japan (shhhh those exist)."
 	puts "Do you decide to travel to Japan to begin your training?"
 	puts "Or do you go to the Hamptons guns blazing but *slightly* underprepared?"
-	next = raw_input("> ").downcase
-	if "hamptons" in next
-		#call gunsablazin with "smarts" variable. you are pretty smart now.
-		gunsablazin(0)
-	elsif "japan" in next
-		goingtojapan()
-	else
-		cthulhu(revengesensei)
-	end
+	whereto = raw_input("> ").downcase
+# 	if "hamptons" in whereto
+# 		#call gunsablazin with "smarts" variable. you are pretty smart now.
+# 		gunsablazin(0)
+# 	elsif "japan" in whereto
+# 		goingtojapan()
+# 	else
+# 		cthulhu(revengesensei)
+# 	end
 end
 
 def gunsablazin(exp)
@@ -133,47 +132,47 @@ def gunsablazin(exp)
 	# give each person a variable that says whether they are alive. can't kill them twice!
 	# also gives emily a variable that allows her to kill 2 people only
 	while tally <= 4
-		next = raw_input("> ")
-		if next == "1" and victoria == True
+		whereto = raw_input("> ")
+		if whereto == "1" and victoria == True
 			puts "You killed Victoria!"
 			victoria = False
 			tally +=1
-		elsif next == "1" and victoria == False
+		elsif whereto == "1" and victoria == False
 			puts "You looped around and tried to kill Victoria again. That was dumb."
 			tally += 1
-		elsif next == "2" and conrad == True
+		elsif whereto == "2" and conrad == True
 			puts "You killed Conrad!"
 			conrad = False
 			tally += 1
-		elsif next == "2" and conrad == False
+		elsif whereto == "2" and conrad == False
 			puts "You looped around and tried to kill Conrad again. That was dumb."
 			tally +=1
-		elsif next == "3" and bill == True
+		elsif whereto == "3" and bill == True
 			puts "You killed Bill!"
 			bill = False
 			tally += 1
-		elsif next == "3" and bill == False
+		elsif whereto == "3" and bill == False
 			puts "You looped around and tried to kill Bill again. That was dumb."
 			tally +=1
-		elsif next == "4" and michelle == True
+		elsif whereto == "4" and michelle == True
 			puts "You killed Dr. Banks!"
 			michelle = False
 			tally += 1
-		elsif next == "4" and michelle == False
+		elsif whereto == "4" and michelle == False
 			puts "You looped around and tried to kill Dr. Banks again. That was dumb."
 			tally +=1
-		elsif next == "5" and mason == True
+		elsif whereto == "5" and mason == True
 			puts "You killed Mason!"
 			mason = False
 			tally += 1
-		elsif next == "5" and mason == False
+		elsif whereto == "5" and mason == False
 			puts "You looped around and tried to kill Mason again. That was dumb."
 			tally +=1
-		elsif next == "6" and tom == True
+		elsif whereto == "6" and tom == True
 			puts "You killed Senator Kingsley!"
 			tom = False
 			tally += 1
-		elsif next == "6" and tom == False
+		elsif whereto == "6" and tom == False
 			puts "You looped around and tried to kill Senator Kingsley again. That was dumb."
 			tally +=1
 		else
@@ -184,10 +183,10 @@ def gunsablazin(exp)
 	puts "You hear the cops coming. Two choices:"
 	puts "1. You are not going down without a fight. Shootout!"
 	puts "2. Surrender and go to jail. Maybe you can escape?"
-	next2 = raw_input("> ")
-	if next2 == "1"
+	whereto2 = raw_input("> ")
+	if whereto2 == "1"
 		dead("Shooting at cops is not the best idea. You get gunned downed by cops.")
-	elsif next2 == "2"
+	elsif whereto2 == "2"
 		dead("You are arrested and sent to jail for life.")
 	else
 		dead("You tried to run, but the feds found you in Tennessee.")
@@ -195,7 +194,7 @@ def gunsablazin(exp)
 end
 
 # sends player to fight cthulhu when they press the wrong button. sends you back to originating function if you defeat cthulhu	
-def cthulhu(wherefrom):
+def cthulhu(wherefrom)
 	puts " "
 	puts "Hmm. You seem to have wondered over to the ocean."
 	puts "Rising out of the ocean is Cthulhu."
@@ -204,22 +203,22 @@ def cthulhu(wherefrom):
 	puts "You have two choices. Do you pick the axe or the rifle?"
 	#cthulhu starts at zero each time
 	cthulhu_life = 0
-	while cthulhu_life < 10 and emily_sanity < 10:
-		next = raw_input("> ")
+	while cthulhu_life < 10 and emily_sanity < 10
+		whereto = raw_input("> ")
 		#sets input to lower case
-		next = raw_input("> ").downcase
-		if "axe" in next
-			cthulhu_life += 5
-			emily_sanity +=1
-			puts "Nice hit! Axe or rifle?"
-		elsif "rifle" in next
-			cthulhu_life +=4
-			emily_sanity +=1
-			puts "Good shot! Axe or rifle?"
-		else
-			emily_sanity +=2
-			puts "You are going insane. Axe or rifle?"
-		end
+		whereto = raw_input("> ").downcase
+# 		if "axe" in whereto
+# 			cthulhu_life += 5
+# 			emily_sanity +=1
+# 			puts "Nice hit! Axe or rifle?"
+# 		elsif "rifle" in whereto
+# 			cthulhu_life +=4
+# 			emily_sanity +=1
+# 			puts "Good shot! Axe or rifle?"
+# 		else
+# 			emily_sanity +=2
+# 			puts "You are going insane. Axe or rifle?"
+# 		end
 	end
 	if cthulhu_life >= 10
 		puts "You have killed Cthulhu."
@@ -248,6 +247,7 @@ def start()
 	#makes variables global
 # 	global emily_sanity, victoria, conrad, bill, michelle, mason, tom
 	puts h[:start][:text]
+	puts "oh HEYYYYY"
 end
 
 def raw_input(prompt)
@@ -255,4 +255,5 @@ def raw_input(prompt)
 	gets
 end
 
+puts "hiiii"
 start() 
